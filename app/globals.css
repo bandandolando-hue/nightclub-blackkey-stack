@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{ color-scheme: dark; }
+body{ @apply bg-black text-white; font-feature-settings:"ss01" on,"cv05" on; }
+.container{ @apply max-w-5xl mx-auto px-4; }
+.card{ @apply rounded-2xl border border-neutral-800 bg-neutral-950/60 shadow-lg p-6; }
+.btn{ @apply inline-flex items-center justify-center rounded-2xl px-4 py-2 border border-neutral-700 hover:border-neutral-500 transition; }
+.btn-primary{ @apply bg-accent text-black font-semibold hover:opacity-90; }

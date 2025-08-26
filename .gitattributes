@@ -1,0 +1,37 @@
+# Ensure consistent line endings in repo (LF inside git, Windows gets CRLF locally)
+* text=auto eol=lf
+
+# Treat these file types as text
+*.js     text
+*.ts     text
+*.tsx    text
+*.jsx    text
+*.json   text
+*.css    text
+*.scss   text
+*.html   text
+*.md     text
+*.yml    text
+*.yaml   text
+
+# Binary files (don’t mess with line endings)
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.webp   binary
+*.ico    binary
+*.svg    binary
+*.ttf    binary
+*.woff   binary
+*.woff2  binary
+*.mp4    binary
+*.mov    binary
+*.avi    binary
+*.mp3    binary
+*.wav    binary
+*.zip    binary
+*.gz     binary
+
+# Env files (just in case)
+.env*    text eol=lf
