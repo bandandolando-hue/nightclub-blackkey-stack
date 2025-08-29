@@ -1,12 +1,15 @@
-import RSVPForm from "@/components/RSVPForm";
-export default function Widget({ searchParams } : { searchParams: { eventId?: string, ref?: string } }) {
-  if (!searchParams.eventId) return <div className="card">Missing eventId</div>;
+// app/widget/page.tsx
+export default function WidgetPage(props: any) {
+  const eventId = props?.searchParams?.eventId ?? undefined;
+  const ref = props?.searchParams?.ref ?? undefined;
+
   return (
-    <div className="max-w-md mx-auto p-4">
-      <div className="card">
-        <h3 className="font-semibold mb-2">RSVP</h3>
-        <RSVPForm eventId={searchParams.eventId} referral={searchParams.ref} />
+    <div className="space-y-4">
+      <h1 className="text-2xl font-semibold">Widget</h1>
+      <div className="opacity-70 text-sm">
+        eventId: {String(eventId ?? "")} | ref: {String(ref ?? "")}
       </div>
+      {/* TODO: render actual widget preview/config */}
     </div>
   );
 }

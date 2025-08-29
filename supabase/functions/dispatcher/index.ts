@@ -1,8 +1,7 @@
-import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-import { send } from "../../../server/connectors/index.ts";
-
+import "jsr:@supabase/functions-js/edge-runtime.d";
+import { send } from "../../../server/connectors/index"
 export const handler = async (req: Request): Promise<Response> => {
-  const url = Deno.env.get("SUPABASE_URL")!; const key = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+  const url = process.env.SUPABASE_URL!; const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
   const now = new Date().toISOString();
   const res = await fetch(`${url}/rest/v1/scheduled_jobs?select=*&run_at=lte.${now}&status=eq.queued`, { headers: { apikey: key, Authorization: `Bearer ${key}` } });
   const jobs = await res.json();
@@ -21,4 +20,4 @@ export const handler = async (req: Request): Promise<Response> => {
   }
   return new Response(JSON.stringify({ ok: true, processed: jobs.length }), { headers: { "content-type": "application/json" } });
 };
-Deno.serve(handler);
+export default handler;
