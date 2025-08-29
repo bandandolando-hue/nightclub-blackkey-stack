@@ -29,3 +29,9 @@ node_modules
 .next
 .env*
 
+
+# --- safety: env & vercel (dedupe OK) ---
+.env
+.env.local
+.env.*.local
+.vercel
