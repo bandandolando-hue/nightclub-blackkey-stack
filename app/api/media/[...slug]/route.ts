@@ -4,11 +4,14 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 // Use a const export and cast to any so Next's type guard won't reject our signature
-export const GET = (async (_req: Request, context: any) => {
-  const parts = Array.isArray(context?.params?.slug)
-    ? context.params.slug
-    : [context?.params?.slug].filter(Boolean);
+// app/api/media/[...slug]/route.ts (example)
+export async function GET(
+  req: Request,
+  ctx: { params: Promise<{ slug: string[] }> }
+) {
+  const { slug } = await ctx.params; // <-- must await
+  // ...rest of handler
 
   // TODO: stream from storage using parts.join("/")
-  return NextResponse.json({ ok: true, slug: parts });
-}) as any;
+  return NextResponse.json({ ok: true, slug: slug });
+}

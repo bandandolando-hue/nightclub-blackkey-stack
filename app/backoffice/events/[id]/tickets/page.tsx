@@ -1,6 +1,12 @@
 // app/backoffice/events/[id]/tickets/page.tsx
-export default function EventTicketsPage(props: any) {
-  const id = String(props?.params?.id ?? "");
+// app/e/[id]/page.tsx (example)
+type Params = { id: string };
+
+export default async function Page(
+  { params }: { params: Promise<Params> }
+) {
+  const { id } = await params;   // <-- must await
+  // ...rest of the page
 
   return (
     <div className="space-y-4">

@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const ADMIN_PIN = process.env.ADMIN_PIN || "123456";
+const ADMIN_PIN = process.env.ADMIN_PIN || "101510";
 
 export async function POST(req: Request) {
   try {

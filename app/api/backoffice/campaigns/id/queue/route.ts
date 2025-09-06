@@ -5,8 +5,9 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function POST(_req: Request, { params }: any) {
-  const id = params?.id as string;
+type Params = { id: string };
+export async function POST(_req: Request, { params }:{ params: Promise<Params> ;}) {
+  const id = await params;;
   // TODO: enqueue campaign by id
   return NextResponse.json({ ok: true, queued: id });
 }
