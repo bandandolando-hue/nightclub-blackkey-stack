@@ -1,5 +1,5 @@
 // @ts-nocheck
-// app/api/admin/campaigns/[id]/queue/route.ts
+// app/api/backoffice/campaigns/[id]/queue/route.ts
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
